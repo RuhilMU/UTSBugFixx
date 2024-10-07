@@ -16,7 +16,10 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+//menambahkan variabel yang kurang
+        val nama = intent.getStringExtra(FormActivity.EXTRA_NAMA)
+        val identitas = intent.getStringExtra(FormActivity.EXTRA_IDENTITAS)
+        val gender = intent.getStringExtra(FormActivity.EXTRA_GENDER)
         val tipe = intent.getStringExtra(AppointmentActivity.EXTRA_TIPE)
         val alamat = intent.getStringExtra(AppointmentActivity.EXTRA_ALAMAT)
         val tanggal = intent.getStringExtra(AppointmentActivity.EXTRA_TANGGAL)
@@ -33,6 +36,8 @@ class ResultActivity : AppCompatActivity() {
                 lokasiTxt.visibility = View.VISIBLE
                 lokasiTxt.text = alamat
             }
+            tanggalTxt.text = tanggal
+            waktuTxt.text = waktu
 
             backBtn.setOnClickListener(){
                 val intentToHome = Intent(this@ResultActivity, MainActivity::class.java)
